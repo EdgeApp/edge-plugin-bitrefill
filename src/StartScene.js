@@ -44,7 +44,7 @@ class StartScene extends Component<Props, State> {
   }
   UNSAFE_componentWillMount () {
     console.log('BRF: Mounted I will ')
-    ui.title('Buy Gift Cards with Bitrefill 2')
+    ui.title('Buy Gift Cards with Bitrefill')
     if (this.state.wallets.length > 0) {
       this.selectWallet(this.state.wallets[0])
     }
