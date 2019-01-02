@@ -1,0 +1,9 @@
+{
+  "pluginId": "co.edgesecure.bitrefill",
+  "name": "Bitrefill",
+  "subtitle": "Live On Crypto.",
+  "provider": "Edge Secure",
+  "iconUrl": "http://104.131.185.242/edge/bitrefill.png",
+  "environment": {
+  }
+}

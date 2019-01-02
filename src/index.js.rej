@@ -1,0 +1,15 @@
+diff a/src/index.js b/src/index.js	(rejected hunks)
+@@ -2 +2 @@
+-import "./index.css";
++import './index.css'
+@@ -4,2 +4,2 @@ import "./index.css";
+-import React from "react";
+-import ReactDOM from "react-dom";
++import React from 'react'
++import ReactDOM from 'react-dom'
+@@ -7 +7 @@ import ReactDOM from "react-dom";
+-import App from "./App";
++import App from './App'
+@@ -9 +9 @@ import App from "./App";
+-ReactDOM.render(<App />, document.getElementById("root"));
++ReactDOM.render(<App />, document.getElementById('root'))

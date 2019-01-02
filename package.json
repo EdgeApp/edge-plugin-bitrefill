@@ -1,0 +1,65 @@
+{
+    "name": "edge-plugin-bitrefill",
+    "version": "0.0.1",
+    "private": true,
+    "devDependencies": {
+      "babel-eslint": "^8.1.0",
+      "babel-jest": "23.4.2",
+      "edge-libplugin": "https://github.com/EdgeApp/edge-libplugin.git#9048d04",
+      "eslint": "^4.17.0",
+      "eslint-config-standard": "^11.0.0-beta.0",
+      "eslint-plugin-flowtype": "^2.35.0",
+      "eslint-plugin-import": "^2.7.0",
+      "eslint-plugin-node": "^5.2.1",
+      "eslint-plugin-promise": "^3.6.0",
+      "eslint-plugin-react": "^7.3.0",
+      "eslint-plugin-standard": "^3.0.1",
+      "flow-bin": "^0.66.0",
+      "husky": "^0.14.3",
+      "@material-ui/core": "3.8.1",
+      "react": "^16.2.0",
+      "react-dom": "^16.2.0",
+      "react-router-dom": "^4.2.2",
+      "react-scripts": "1.1.1",
+      "rimraf": "^2.6.2",
+      "uuid": "^3.2.1",
+      "lint-staged": "^8.0.4",
+      "prettier-eslint-cli": "^4.7.1",
+      "import-sort-cli": "^5.0.0",
+      "import-sort-parser-babylon": "^5.0.0",
+      "import-sort-style-module": "^5.0.0"
+    },
+    "scripts": {
+        "precommit": "lint-staged && flow",
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "clean": "rimraf target build",
+        "test": "react-scripts test --env=jsdom",
+        "eject": "react-scripts eject",
+        "edge": "edge-ify -o target -s build",
+        "lint": "eslint --parser babel-eslint ./src",
+        "lint:fix": "npm run lint -- --fix",
+        "flow:0": "flow; exit 0",
+        "flow": "flow"
+      },
+      "files": [
+        "target/index.html",
+        "manifest.json"
+      ],
+      "dependencies": {
+        "moment": "^2.22.2"
+      },
+      "lint-staged": {
+        "*.js": [
+          "import-sort -l --write",
+          "prettier-eslint --write",
+          "git add"
+        ]
+      },
+      "importSort": {
+        ".js, .es": {
+          "parser": "babylon",
+          "style": "module"
+        }
+      }
+}
