@@ -30,7 +30,8 @@ type State = {
   dialogOpen: boolean,
   drawerOpen: boolean,
   wallets: Array<Object>,
-  selectedWallet: Object | null
+  selectedWallet: Object | null,
+  selectedWalletId: string | null
 }
 class StartScene extends Component<Props, State> {
   constructor (props: Props) {
@@ -39,56 +40,31 @@ class StartScene extends Component<Props, State> {
       dialogOpen: false,
       drawerOpen: false,
       wallets: [],
-      selectedWallet: null
+      selectedWallet: null,
+      selectedWalletId: null
     }
   }
   UNSAFE_componentWillMount () {
-    console.log('BRF: Mounted I will ')
     ui.title('Buy Gift Cards with Bitrefill')
-    if (this.state.wallets.length > 0) {
-      this.selectWallet(this.state.wallets[0])
-    }
-    this.loadWallets()
+    core.selectedWallet().then(wallet => {
+      if (API.SUPPORTED_DIGITAL_CURRENCIES.includes(wallet.currencyCode)) {
+        this.setState({
+          selectedWallet: wallet
+        })
+      }
+      this.loadWallets()
+    })
   }
   loadWallets = () => {
     core
       .wallets()
       .then(data => {
-        this.setState(
-          {
-            wallets: data.filter(
-              wallet =>
-                API.SUPPORTED_DIGITAL_CURRENCIES.indexOf(wallet.currencyCode) >=
-                0
-            )
-          },
-          () => {
-            if (this.state.wallets.length > 0) {
-              let i = 0
-              const lastWallet = window.localStorage.getItem(
-                'bitrefill-last_wallet'
-              )
-              if (lastWallet) {
-                for (i; i < this.state.wallets.length; ++i) {
-                  if (this.state.wallets[i].id === lastWallet) {
-                    this.selectWallet(this.state.wallets[i])
-                    break
-                  }
-                }
-                if (i >= this.state.wallets.length) {
-                  i = 0
-                }
-              }
-            } else {
-              ui.showAlert(
-                false,
-                'Error',
-                'No Wallets for supported currencies.'
-              )
-              ui.exit()
-            }
-          }
-        )
+        this.setState({
+          wallets: data.filter(
+            wallet =>
+              API.SUPPORTED_DIGITAL_CURRENCIES.indexOf(wallet.currencyCode) >= 0
+          )
+        })
       })
       .catch(() => {
         ui.showAlert(
@@ -111,6 +87,7 @@ class StartScene extends Component<Props, State> {
         if (!this.state.selectedWallet) return
         const address = data.address.publicAddress
         const url = API.formatUrlCall(address, this.state.selectedWallet.type)
+        // const url2 = 'http://104.131.185.242/edge/index.html'
         window.open(url, '_self')
       })
   }
@@ -135,6 +112,7 @@ class StartScene extends Component<Props, State> {
       drawerOpen: false,
       selectedWallet: wallet
     })
+    core.chooseWallet(wallet.id, wallet.currencyCode)
     window.localStorage.setItem('last_wallet', wallet.id)
   }
 

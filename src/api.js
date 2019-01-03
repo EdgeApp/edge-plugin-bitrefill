@@ -10,6 +10,7 @@ export const API_VERSION = '1'
 export const BITREFILL_URL = 'https://www.bitrefill.com/'
 export const API_KEY = 'APIKEYforEdge'
 export const CALLBACK_KEY = 'edge'
+export const RETURN_URL = null
 export const LIMITS = {
   USD: {
     min: 50,
