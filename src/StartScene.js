@@ -54,6 +54,10 @@ class StartScene extends Component<Props, State> {
       }
       this.loadWallets()
     })
+    core.getAPIKey()
+      .then(result => {
+        API.KEYS.apiKey = result
+      })
   }
   loadWallets = () => {
     core
