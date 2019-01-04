@@ -3127,9 +3127,9 @@ ecc-jsbn@~0.1.1:
     jsbn "~0.1.0"
     safer-buffer "^2.1.0"
 
-"edge-libplugin@https://github.com/EdgeApp/edge-libplugin.git#a388d4a":
+"edge-libplugin@https://github.com/EdgeApp/edge-libplugin.git#974bd13":
   version "0.0.1"
-  resolved "https://github.com/EdgeApp/edge-libplugin.git#a388d4ade205b80cc304c4b092ba7b17b04d4974"
+  resolved "https://github.com/EdgeApp/edge-libplugin.git#974bd1373fbd9ec3d499ee4db25bfca745fcb7d6"
   dependencies:
     babel-core "^6.26.0"
     babel-loader "^7.1.3"

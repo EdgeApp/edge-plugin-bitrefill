@@ -17,8 +17,8 @@ export const SUPPORTED_DIGITAL_CURRENCIES = [
 ]
 // `https://www.bitrefill.com/embed/:coin?apiKey=&refundAddress=&paymentUriProtocol=edge
 export const formatUrlCall = (address: string, type: string) => {
-  const route = type.replace('wallet:', 'embed/:')
-  return (
+  const route = type.replace('wallet:', 'embed/')
+  const url =
     BIT_REFILL_URL +
     route +
     '?apiKey=' +
@@ -27,5 +27,5 @@ export const formatUrlCall = (address: string, type: string) => {
     CALLBACK_KEY +
     '&refundAddress=' +
     address
-  )
+  return url
 }
