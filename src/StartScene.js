@@ -45,7 +45,7 @@ class StartScene extends Component<Props, State> {
     }
   }
   UNSAFE_componentWillMount () {
-    ui.title('Buy Gift Cards with -- Bitrefill')
+    ui.title('Buy Gift Cards with --- Bitrefill')
     core.selectedWallet().then(wallet => {
       if (API.SUPPORTED_DIGITAL_CURRENCIES.includes(wallet.currencyCode)) {
         this.setState({
