@@ -6,7 +6,7 @@ import CardContent from '@material-ui/core/CardContent'
 import Divider from '@material-ui/core/Divider'
 import { withStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
-import { core, ui } from 'edge-libplugin'
+import { config, core, ui } from 'edge-libplugin'
 import React, { Component } from 'react'
 
 // import { EdgeButton, SupportLink } from './components'
@@ -45,7 +45,7 @@ class StartScene extends Component<Props, State> {
     }
   }
   UNSAFE_componentWillMount () {
-    ui.title('Buy Gift Cards with --- Bitrefill')
+    ui.title('Buy Gift Cards with -+- Bitrefill')
     core.selectedWallet().then(wallet => {
       if (API.SUPPORTED_DIGITAL_CURRENCIES.includes(wallet.currencyCode)) {
         this.setState({
@@ -53,9 +53,13 @@ class StartScene extends Component<Props, State> {
         })
       }
       this.loadWallets()
+    }).catch((e) => {
+      this.loadWallets()
     })
-    core.get('apiKey').then(result => {
+    config.get('apiKey').then(result => {
       API.KEYS.apiKey = result
+    }).catch((e) => {
+      this.loadWallets()
     })
   }
   loadWallets = () => {
@@ -96,9 +100,29 @@ class StartScene extends Component<Props, State> {
   }
 
   openWallets = () => {
-    this.setState({
-      drawerOpen: true
+    console.log('WTF')
+    core.selectedWallet().then(wallet => {
+      if (API.SUPPORTED_DIGITAL_CURRENCIES.includes(wallet.currencyCode)) {
+        console.log('Wallet-----', wallet)
+        this.setState({
+          selectedWallet: wallet
+        })
+      }
+      this.loadWallets()
+    }).catch((e) => {
+      console.log('error Selected Wallet', e)
+      this.loadWallets()
     })
+    config.get('apiKey').then(result => {
+      console.log('Keys-----')
+      API.KEYS.apiKey = result
+    }).catch((e) => {
+      console.log('error API Key', e)
+      this.loadWallets()
+    })
+    /* this.setState({
+      drawerOpen: true
+    }) */
   }
 
   closeWallets = () => {
