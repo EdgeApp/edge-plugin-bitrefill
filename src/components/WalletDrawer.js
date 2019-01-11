@@ -38,7 +38,7 @@ class WalletDrawer extends Component<Props> {
           <EdgeButton
             color="primary"
             onClick={this.props.onHeaderClick}
-            text={'Choose Destination Wallet'}
+            text={'Choose Wallet'}
           />
           {this.renderWallets()}
         </div>

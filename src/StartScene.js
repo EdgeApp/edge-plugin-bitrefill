@@ -159,7 +159,7 @@ class StartScene extends Component<Props, State> {
                 component="h3"
                 className={classes.h3}
               >
-                Destination Wallet
+                Wallet
                 {this.state.selectedWallet && (
                   <span>: {this.state.selectedWallet.name}</span>
                 )}
@@ -169,8 +169,8 @@ class StartScene extends Component<Props, State> {
                 onClick={this.openWallets}
                 text={
                   this.state.selectedWallet
-                    ? 'Change Destination Wallet'
-                    : 'Select Destination Wallet'
+                    ? 'Change Wallet'
+                    : 'Select Wallet'
                 }
               />
               <EdgeButton
