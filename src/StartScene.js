@@ -132,7 +132,7 @@ class StartScene extends Component<Props, State> {
           <StartParagraph
             classes={classes}
             text={
-              'Buy dozens of gift cards and mobile phone topups with your favorite cryptocurrency. Bitrefill supports Bitcoin, Ethereum, Dash, and Litecoin'
+              'Buy dozens of gift cards and mobile phone top-ups with your favorite cryptocurrency. Bitrefill supports Bitcoin, Ethereum, Dash, and Litecoin'
             }
           />
         </div>
