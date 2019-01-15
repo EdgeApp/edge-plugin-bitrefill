@@ -135,7 +135,11 @@ class StartScene extends Component<Props, State> {
     return (
       <div className={classes.container}>
         <div className={classes.logoContainer}>
-          <img style={StartStyles.logo} src={'http://104.131.185.242/edge/bitrefillLong.png'} alt={''} />
+          <img
+            style={StartStyles.logo}
+            src={'http://104.131.185.242/edge/bitrefillLong.png'}
+            alt={''}
+          />
         </div>
         <div>
           <StartHeader text="Bitrefill" classes={classes} />
@@ -148,10 +152,7 @@ class StartScene extends Component<Props, State> {
         </div>
         <Divider className={classes.divider} />
         <div>
-          <StartHeader
-            text="Select payment wallet"
-            classes={classes}
-          />
+          <StartHeader text="Select payment wallet" classes={classes} />
           <Card className={classes.card}>
             <CardContent>
               <Typography
@@ -168,9 +169,7 @@ class StartScene extends Component<Props, State> {
                 color="primary"
                 onClick={this.openWallets}
                 text={
-                  this.state.selectedWallet
-                    ? 'Change Wallet'
-                    : 'Select Wallet'
+                  this.state.selectedWallet ? 'Change Wallet' : 'Select Wallet'
                 }
               />
               <EdgeButton

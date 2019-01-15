@@ -2,7 +2,7 @@
 import Drawer from '@material-ui/core/Drawer'
 import React, { Component } from 'react'
 
-import { EdgeButton } from './index.js'
+import { WalletButton } from './index.js'
 
 type Props = {
   open: boolean,
@@ -15,12 +15,13 @@ type Props = {
 class WalletDrawer extends Component<Props> {
   renderWallet = (wallet: Object) => {
     return (
-      <EdgeButton
+      <WalletButton
         color={'primary'}
         key={wallet.id}
         onClick={() => this.props.selectWallet(wallet)}
-        text={wallet.name + '(' + wallet.currencyCode + ')'}
-      />
+      >
+        {wallet.name + '(' + wallet.currencyCode + ')'}
+      </WalletButton>
     )
   }
   renderWallets = () => {
@@ -35,11 +36,9 @@ class WalletDrawer extends Component<Props> {
         onClose={this.props.onClose}
       >
         <div>
-          <EdgeButton
-            color="primary"
-            onClick={this.props.onHeaderClick}
-            text={'Choose Wallet'}
-          />
+          <WalletButton color="primary" onClick={this.props.onHeaderClick}>
+            <span style={{ fontWeight: 'bold' }}>Choose Wallet</span>
+          </WalletButton>
           {this.renderWallets()}
         </div>
       </Drawer>
