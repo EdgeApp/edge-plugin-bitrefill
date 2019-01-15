@@ -2,13 +2,17 @@
 
 import { theme } from './Theme'
 const StartStyles = {
-  logo: {
+  logoContainer: {
     flex: 1,
     alignItems: 'center',
     justfiyContent: 'space-around'
   },
+  logo: {
+    position: 'relative',
+    width: '100%'
+  },
   card: {
-    margin: '20px 0px',
+    margin: '10px 0px',
     padding: '0px 10px'
   },
   container: {
