@@ -137,7 +137,9 @@ class StartScene extends Component<Props, State> {
         <div className={classes.logoContainer}>
           <img
             style={StartStyles.logo}
-            src={'http://104.131.185.242/edge/bitrefillLong.png'}
+            src={
+              'https://edge.app/wp-content/uploads/2019/01/bitrefillLongBig.png'
+            }
             alt={''}
           />
         </div>
