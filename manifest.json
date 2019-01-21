@@ -3,7 +3,7 @@
   "name": "Bitrefill",
   "subtitle": "Buy gift cards and refill phones.",
   "provider": "Edge Secure",
-  "iconUrl": "http://edge.app/wp-content/uploads/2019/01/bitrefill-2.png",
+  "iconUrl": "https://edge.app/wp-content/uploads/2019/01/bitrefill-2.png",
   "environment": {
   }
 }
