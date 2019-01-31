@@ -134,24 +134,27 @@ class StartScene extends Component<Props, State> {
     const isDisabled = this.state.selectedWallet || false
     return (
       <div className={classes.container}>
-        <div className="text-center">
-          <img src={'http://104.131.185.242/edge/bitrefillLong.png'} alt={''} />
+        <div className={classes.logoContainer}>
+          <img
+            style={StartStyles.logo}
+            src={
+              'https://edge.app/wp-content/uploads/2019/01/bitrefillLongBig.png'
+            }
+            alt={''}
+          />
         </div>
         <div>
-          <StartHeader text="Birefill" classes={classes} />
+          <StartHeader text="Bitrefill" classes={classes} />
           <StartParagraph
             classes={classes}
             text={
-              'Buy dozens of gift cards and mobile phone top-ups with your favorite cryptocurrency. Bitrefill supports Bitcoin, Ethereum, Dash, and Litecoin'
+              'Refill prepaid phones and buy gift cards from dozens of brands like Amazon, Steam and Hotels.com. Pay with your favorite cryptocurrency. Bitrefill supports Bitcoin, Ethereum, Dash and Litecoin.'
             }
           />
         </div>
         <Divider className={classes.divider} />
         <div>
-          <StartHeader
-            text="Please choose a wallet to use for payment"
-            classes={classes}
-          />
+          <StartHeader text="Select payment wallet" classes={classes} />
           <Card className={classes.card}>
             <CardContent>
               <Typography
