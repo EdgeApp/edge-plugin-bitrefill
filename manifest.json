@@ -1,7 +1,7 @@
 {
   "pluginId": "co.edgesecure.bitrefill",
   "name": "Bitrefill",
-  "subtitle": "Live On Crypto.",
+  "subtitle": "Buy gift cards and mobile topups\nAccepts BTC, DASH, ETH, and LTC\nSave 10% when using DASH",
   "provider": "Edge Secure",
   "iconUrl": "http://104.131.185.242/edge/bitrefill.png",
   "environment": {
