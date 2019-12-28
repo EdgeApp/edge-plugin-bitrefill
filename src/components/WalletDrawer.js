@@ -14,6 +14,7 @@ type Props = {
 
 class WalletDrawer extends Component<Props> {
   renderWallet = (wallet: Object) => {
+    console.log('kylan rendering wallet')
     return (
       <WalletButton
         color={'primary'}
