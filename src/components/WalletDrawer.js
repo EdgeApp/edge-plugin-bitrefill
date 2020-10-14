@@ -16,7 +16,7 @@ class WalletDrawer extends Component<Props> {
   renderWallet = (wallet: Object) => {
     return (
       <WalletButton
-        color={'primary'}
+        color="primary"
         key={wallet.id}
         onClick={() => this.props.selectWallet(wallet)}
       >
@@ -24,10 +24,12 @@ class WalletDrawer extends Component<Props> {
       </WalletButton>
     )
   }
+
   renderWallets = () => {
     return this.props.wallets.map(wallet => this.renderWallet(wallet))
   }
-  render () {
+
+  render() {
     return (
       <Drawer
         anchor="bottom"
