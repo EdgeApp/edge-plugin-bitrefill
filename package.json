@@ -11,55 +11,51 @@
     "clean": "rimraf target build",
     "edge": "edge-ify -o target -s build",
     "eject": "react-scripts eject",
+    "fix": "npm run lint -- --fix",
     "flow": "flow",
     "flow:0": "flow; exit 0",
-    "lint": "eslint --parser babel-eslint ./src",
-    "lint:fix": "npm run lint -- --fix",
+    "lint": "eslint --ext .js,.jsx .",
     "precommit": "lint-staged && flow",
     "start": "react-scripts start",
     "test": "react-scripts test --env=jsdom"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run precommit"
+    }
+  },
   "lint-staged": {
-    "*.js": [
-      "import-sort -l --write",
-      "prettier-eslint --write",
-      "git add"
-    ]
+    "*.{js,jsx}": "eslint"
+  },
+  "resolutions": {
+    "gulp": "4.0.2"
   },
   "dependencies": {
     "moment": "^2.22.2"
   },
   "devDependencies": {
     "@material-ui/core": "3.8.1",
-    "babel-eslint": "^8.1.0",
-    "babel-jest": "23.4.2",
+    "babel-eslint": "^10.1.0",
     "edge-libplugin": "https://github.com/EdgeApp/edge-libplugin.git#8dc5a6f",
-    "eslint": "^4.17.0",
-    "eslint-config-standard": "^11.0.0-beta.0",
-    "eslint-plugin-flowtype": "^2.35.0",
-    "eslint-plugin-import": "^2.7.0",
-    "eslint-plugin-node": "^5.2.1",
-    "eslint-plugin-promise": "^3.6.0",
-    "eslint-plugin-react": "^7.3.0",
-    "eslint-plugin-standard": "^3.0.1",
+    "eslint": ">=6.2.2",
+    "eslint-config-standard-kit": "^0.14.4",
+    "eslint-plugin-flowtype": "^5.2.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.21.4",
+    "eslint-plugin-simple-import-sort": "^5.0.3",
+    "eslint-plugin-standard": "^4.0.1",
     "flow-bin": "^0.66.0",
-    "husky": "^0.14.3",
-    "import-sort-cli": "^5.0.0",
-    "import-sort-parser-babylon": "^5.0.0",
-    "import-sort-style-module": "^5.0.0",
-    "lint-staged": "^8.0.4",
-    "prettier-eslint-cli": "^4.7.1",
-    "react": "^16.2.0",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.4.0",
+    "prettier": "^2.1.2",
+    "react": "^16.14.0",
     "react-dom": "^16.2.0",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.1",
     "rimraf": "^2.6.2",
     "uuid": "^3.2.1"
-  },
-  "importSort": {
-    ".js, .es": {
-      "parser": "babylon",
-      "style": "module"
-    }
   }
 }
