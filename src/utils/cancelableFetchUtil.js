@@ -22,7 +22,7 @@ export const cancelableFetch = (url: string, data: Object) => {
 
   return {
     promise,
-    cancel () {
+    cancel() {
       canceled = true
     }
   }

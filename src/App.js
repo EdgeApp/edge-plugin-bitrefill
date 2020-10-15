@@ -2,7 +2,7 @@
 import { createMuiTheme, withStyles } from '@material-ui/core/styles'
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider'
 import React, { Component } from 'react'
-import { Route, HashRouter as Router } from 'react-router-dom'
+import { HashRouter as Router, Route } from 'react-router-dom'
 
 import StartScene from './StartScene'
 import { theme as t } from './styles/Theme'
@@ -43,7 +43,7 @@ type Props = {
   classes: Object
 }
 class App extends Component<Props> {
-  render () {
+  render() {
     return (
       <MuiThemeProvider theme={theme}>
         <Router>

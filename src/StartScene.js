@@ -34,7 +34,7 @@ type State = {
   selectedWalletId: string | null
 }
 class StartScene extends Component<Props, State> {
-  constructor (props: Props) {
+  constructor(props: Props) {
     super(props)
     this.state = {
       dialogOpen: false,
@@ -44,7 +44,8 @@ class StartScene extends Component<Props, State> {
       selectedWalletId: null
     }
   }
-  UNSAFE_componentWillMount () {
+
+  UNSAFE_componentWillMount() {
     ui.title('Buy Gift Cards with Bitrefill')
     core
       .selectedWallet()
@@ -68,6 +69,7 @@ class StartScene extends Component<Props, State> {
         this.loadWallets()
       })
   }
+
   loadWallets = () => {
     core
       .wallets()
@@ -129,7 +131,7 @@ class StartScene extends Component<Props, State> {
     window.localStorage.setItem('last_wallet', wallet.id)
   }
 
-  render () {
+  render() {
     const classes = this.props.classes
     const isDisabled = this.state.selectedWallet || false
     return (
@@ -137,19 +139,15 @@ class StartScene extends Component<Props, State> {
         <div className={classes.logoContainer}>
           <img
             style={StartStyles.logo}
-            src={
-              'https://edge.app/wp-content/uploads/2019/01/bitrefillLongBig.png'
-            }
-            alt={''}
+            src="https://edge.app/wp-content/uploads/2019/01/bitrefillLongBig.png"
+            alt=""
           />
         </div>
         <div>
           <StartHeader text="Bitrefill" classes={classes} />
           <StartParagraph
             classes={classes}
-            text={
-              'Refill prepaid phones and buy gift cards from dozens of brands like Amazon, Steam and Hotels.com. Pay with your favorite cryptocurrency. Bitrefill supports Bitcoin, Ethereum, Dash and Litecoin.'
-            }
+            text="Refill prepaid phones and buy gift cards from dozens of brands like Amazon, Steam and Hotels.com. Pay with your favorite cryptocurrency. Bitrefill supports Bitcoin, Ethereum, Dash and Litecoin."
           />
         </div>
         <Divider className={classes.divider} />
@@ -177,7 +175,7 @@ class StartScene extends Component<Props, State> {
               <EdgeButton
                 color="primary"
                 onClick={this.buyCards}
-                text={'Next'}
+                text="Next"
                 disabled={!isDisabled}
               />
             </CardContent>

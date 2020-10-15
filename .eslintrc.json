@@ -1,0 +1,16 @@
+{
+  "extends": [
+    "standard-kit/prettier",
+    "standard-kit/prettier/jsx",
+    "standard-kit/prettier/flow"
+  ],
+  "plugins": [
+    "simple-import-sort"
+  ],
+  "rules": {
+    "camelcase": "warn",
+    "flowtype/require-valid-file-annotation": [2, "always"],
+    "react/jsx-handler-names": "warn",
+    "simple-import-sort/sort": "error"
+  }
+}
